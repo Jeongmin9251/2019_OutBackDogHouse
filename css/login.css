@@ -19,7 +19,7 @@
 .input
 {
     padding: 10px 20px;
-    border-radius: 10px
+    border-radius: 10px;
 }
 .sumbit
 {
@@ -33,4 +33,7 @@
 {
     color : #18152d;
     background: #e0d9da;
+}
+h2{
+    margin-top: 25px;
 }
