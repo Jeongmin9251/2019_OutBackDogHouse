@@ -11,19 +11,25 @@
     <script src="../js/main.js"></script>
 </head>
 <body>
-    <!-- <div class="menu_bar"></div> -->
-    <!-- <div class="MainbackgroundImg"></div> -->
-    <div class="MainbackgroundImg">
         <header></header>
         <main class="cards">
-
+            <!-- 불쾌지수 -->
             <div class="flip-card">
                 <div class="flip-card-inner">
 
                     <div class="flip-card-front">
-                        <img src="img_avatar.png" alt="Avatar" style="width:300px;height:300px;">
-                        <h1>오늘의 날씨</h1>
-                        <h2>25°C</h2>
+                        <div class="small_font">불쾌지수</div>
+
+                        <img src="https://image.flaticon.com/icons/svg/874/874992.svg"
+                         alt="Today">
+                         <!-- 오늘의 날짜 -->    
+                        <div class="small_font">
+                            9월 19일
+                        </div> 
+                        <!-- 불쾌지수 -->
+                        <div class="big_font" style="margin-top: 20px"> 
+                            좋음
+                        </div> 
                     </div>
 
                     <div class="flip-card-back">
@@ -34,11 +40,23 @@
                 </div>
             </div>
 
+            <!-- 오늘의 날씨 -->
             <div class="flip-card">
                 <div class="flip-card-inner">
     
                     <div class="flip-card-front">
-                        <img src="img_avatar.png" alt="Avatar" style="width:300px;height:300px;">
+                        <div class="small_font">오늘의 날씨</div>
+                        
+                        <img src="https://image.flaticon.com/icons/svg/132/132233.svg" 
+                        alt="Wheater">
+                        <!-- 오늘의 날짜 -->
+                        <div class="small_font">
+                            9월 19일
+                        </div> 
+                        <!-- 사용자의 지역온도 -->
+                        <div class="big_font" style="margin-top: 20px"> 
+                                25°C
+                        </div> 
                     </div>
                         
                     <div class="flip-card-back">
@@ -48,12 +66,23 @@
                     </div>
                 </div>
             </div>
-            
+            <!-- 마이 도그하우스 -->
             <div class="flip-card">
                 <div class="flip-card-inner">
     
                     <div class="flip-card-front">
-                        <img src="img_avatar.png" alt="Avatar" style="width:300px;height:300px;">
+                        <div class="small_font">마이 도그하우스</div>
+                        
+                        <img src="https://image.flaticon.com/icons/svg/609/609803.svg" 
+                        alt="DogHouse">
+                        <!-- 개 집 온도 -->
+                        <div class="big_font" style="margin-top: 20px"> 
+                                25°C
+                        </div> 
+                        <!-- 개 집 무게 -->
+                        <div class="big_font" style="margin-top: 20px"> 
+                                5kg
+                        </div> 
                     </div>
                         
                     <div class="flip-card-back">
@@ -65,6 +94,5 @@
             </div>
 
         </main>
-    </div>
 </body>
 </html>
