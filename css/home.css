@@ -27,8 +27,8 @@ html {
 /* 카드 각각 1개 */
 .flip-card {
   background-color: transparent;
-  width: 250px;
-  height: 500px;
+  width: 200px;
+  height: 450px;
   border: 1px solid #f1f1f1;
   font-size: 50%;
   display: inline-block;
@@ -47,6 +47,14 @@ html {
   transform-style: preserve-3d;
 }
   
+.flip-card-in {
+  position: relative;
+  width: 100%;
+  height: 100%;
+  text-align: center;
+  transition: transform 0.8s;
+}
+
 /* Do an horizontal flip when you move the mouse over the flip box container */
 /* 플립 박스 용기 위로 마우스를 이동할 때 수평 플립을 수행하십시오. */
 .flip-card:hover .flip-card-inner {
@@ -68,7 +76,7 @@ html {
 }
 
 .flip-card-front > img{
-  width: 200px;
+  width: 150px;
   margin:30px 0px 40px 0px; 
 }
   
@@ -84,4 +92,11 @@ html {
   margin-top: 20px;
 }
 
+.btn{
+  font-size: 20px;
+  border: 2px solid #8f47c0;
+  padding: 10px;
+  margin: 20px 40px 10px 40px;
+  font-size: 15px;
+}
 
