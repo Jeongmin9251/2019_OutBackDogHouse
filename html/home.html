@@ -5,10 +5,11 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <meta http-equiv="X-UA-Compatible" content="ie=edge">
     <title>OutBack_DogHouse</title>
+    <link rel=" shortcut icon" href="../image/DogHouse-2.ico">
+    <link rel="icon" href="../image/DogHouse-2.ico">
     <link rel="stylesheet" href="../css/reset.css">
     <link rel="stylesheet" href="../css/home.css">
     <script src="http://code.jquery.com/jquery-1.9.1.js"></script>
-    <script src="../js/main.js"></script>
 </head>
 <body>
         <header></header>
@@ -48,17 +49,17 @@
                          alt="Today">
                          <!-- 오늘의 날짜 -->    
                         <div class="small_font">
-                            9월 19일
+                            <!-- 날짜 -->
+                            <span class="nowday"></span> 
                         </div> 
                         <!-- 불쾌지수 -->
-                        <div class="big_font" style="margin-top: 20px"> 
+                        <div class="big_font"> 
                             좋음
                         </div> 
                     </div>
 
                     <div class="flip-card-back">
-                        <h1><br>불쾌지수 보러가기</h1>
-                        <p>Architect & Engineer</p>
+                        <h1>불쾌지수 보러가기</h1>
                     </div>
                 </div>
             </div>
@@ -72,21 +73,21 @@
                         
                         <img src="https://image.flaticon.com/icons/svg/132/132233.svg" 
                         alt="Wheater">
-                        <!-- 오늘의 날짜 -->
-                        <div class="small_font">
-                            9월 19일
-                        </div> 
                         <!-- 사용자의 지역온도 -->
-                        <div class="big_font" style="margin-top: 20px"> 
-                                25°C
+                        <div class="big_font">
+                            <!-- 온도  -->
+                            <span class="temp"></span>
+                            <span>°C</span>
                         </div> 
                     </div>
                         
+                    <a href="https://weather.naver.com/" target="_blank">
                     <div class="flip-card-back">
-                        <h1>John Doe</h1>
-                        <p>Architect & Engineer</p>
-                        <p>We love that guy</p>
+                    
+                        <h1>날씨 보러가기</h1>
+                    
                     </div>
+                    </a>
                 </div>
             </div>
             <!-- 마이 도그하우스 -->
@@ -99,23 +100,23 @@
                         <img src="https://image.flaticon.com/icons/svg/609/609803.svg" 
                         alt="DogHouse">
                         <!-- 개 집 온도 -->
-                        <div class="big_font" style="margin-top: 20px"> 
+                        <div class="big_font"> 
                                 25°C
                         </div> 
                         <!-- 개 집 무게 -->
-                        <div class="big_font" style="margin-top: 20px"> 
+                        <div class="big_font"> 
                                 5kg
                         </div> 
                     </div>
                         
-                    <div class="flip-card-back">
-                        <h1>John Doe</h1>
-                        <p>Architect & Engineer</p>
-                        <p>We love that guy</p>
+                    <div class="flip-card-back" href = "https://weather.naver.com/">
+                        <h1>자세히 보러가기</h1>
                     </div>
                 </div>
             </div>
 
         </main>
+
+        <script src="../js/main.js"></script>
 </body>
 </html>
