@@ -81,15 +81,25 @@ html {
 }
   
 /* Style the back side */
-.flip-card-back {
+.flip-card-back 
+{
   background-color: dodgerblue;
   color: white;
   transform: rotateY(180deg);
+  
+}
+.flip-card-back > h1
+{
+  margin-top: 70px;
 }
 
 .small_font{
   font-size: 20px;
   margin-top: 20px;
+}
+
+.big_font{
+  margin-top: 25px;
 }
 
 .btn{
