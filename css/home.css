@@ -98,5 +98,12 @@ html {
   padding: 10px;
   margin: 20px 40px 10px 40px;
   font-size: 15px;
+  color: #8f47c0;
+}
+
+.btn:hover , .btn:active{
+  border: none;
+  background: #9047c0;
+  color: #f1f1f1;
 }
 
