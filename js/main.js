@@ -1,7 +1,7 @@
 //menu-bar 가져오기
 $(document).ready(function(){
-	$('header').load('../html/menu_bar.html');
-})
+	$('header').load("../html/menu_bar.html");
+});
 
 const weather = document.querySelector(".temp");
 
@@ -24,7 +24,7 @@ function getWeather(lat,lng)
         // 온도
         const temperature = json.main.temp; 
         // 도시 이름   
-        const place = json.name;                
+        //const place = json.name;                
         //weather(".js-weather"인 html위치)에 온도 
         weather.innerHTML = `${temperature}`
         //@ ${place}  @ 도시 출력
@@ -52,7 +52,7 @@ function handleGeoSuccess(position)
         longitude
     }
      // localStorage에 저장하는 함수 호출
-    saveCoords(coordsObj);     
+    //saveCoords(coordsObj);     
 
     // 날씨 api사용 함수 호출
     getWeather(latitude, longitude);    
@@ -75,20 +75,20 @@ function askForCoords()
 function loadedCoords()
 {
     // 일단 저장된 coords 가져옴 
-    const loadedCoords = localStorage.getItem(COORDS);
+    //const loadedCoords = localStorage.getItem(COORDS);
 
     // 저장된 값 없으면 위치정보 읽는 메소드 실행
-    if(loadedCoords === null)
-    {  
+    //if(loadedCoords === null)
+    //{  
         askForCoords(); 
-    }
-    else
-    {
+    //}
+    //else
+    //{
         // 있다면 가져와서 object로 파싱
-        const parsedCoords = JSON.parse(loadedCoords);  
+        //const parsedCoords = JSON.parse(loadedCoords);  
         // 파싱된 object를 날씨api메소드로 넘겨줌
-        getWeather(parsedCoords.latitude,parsedCoords.longitude); 
-    }
+        //getWeather(parsedCoords.latitude,parsedCoords.longitude); 
+   // }
 }
 
 function init(){
