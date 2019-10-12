@@ -1,0 +1,53 @@
+body, html { 
+    margin: 0;
+    padding: 0;
+    height: 100%;
+}
+  
+html { 
+    background: url(../image/LodingBackground.png) no-repeat center center fixed; 
+    -webkit-background-size: cover;
+    -moz-background-size: cover;
+    -o-background-size: cover;
+    background-size: cover;
+}
+  
+  /* 카드 묶음 */
+.cards{
+    width: 80%; 
+    position: absolute;
+    top: 10%;
+    left: 10%;
+    font-size:8rem;
+    text-align: center;
+}
+  
+  /* 카드 각각 1개 */
+.flip-card {
+    width: 400px;
+    height: 600px;
+    border: 1px solid #f1f1f1;
+    background-color: rgba(255, 255, 255, 0.699);
+    color: black;
+    font-size: 50%;
+    display: inline-block;
+    margin: 30px auto;
+}
+    
+.flip-card > img{
+    width: 250px;
+    margin: 35px 0px 40px 0px; 
+}
+  
+.small_font{
+    font-size: 20px;
+    margin: 20px auto;
+}
+
+.btn{
+    font-size: 20px;
+    border: 2px solid #8f47c0;
+    padding: 10px;
+    margin: 20px 40px 10px 40px;
+    font-size: 15px;
+}
