@@ -4,6 +4,10 @@ body, html {
     height: 100%;
   }
   
+a{
+  text-decoration: none;
+}
+
   html { 
     background: url(../image/LodingBackground.png) no-repeat center center fixed; 
     -webkit-background-size: cover;
@@ -83,8 +87,7 @@ body, html {
   /* Style the back side */
   .flip-card-back 
   {
-    background-color: dodgerblue;
-    color: white;
+    background-color: rgba(255, 255, 255, 0.699);
     transform: rotateY(180deg);
     
   }
