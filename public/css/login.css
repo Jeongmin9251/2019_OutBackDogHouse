@@ -1,0 +1,39 @@
+.backgroundImg
+{
+    position: relative;
+    background-image: url(../image/LoginBackground.png);
+    height: 100vh;
+    background-size: cover;
+}
+.center
+{
+    position: absolute;
+     top:50%;
+     left:50%;
+     transform: translate(-50%, -50%);                                                                   
+     font-size:3rem;
+     color: #e0d9da;
+     z-index: 2;
+     text-align: center;
+}
+.input
+{
+    padding: 10px 20px;
+    border-radius: 10px;
+}
+.submit
+{
+    color: #e0d9da;
+    font-size: 1.1rem;
+    padding: 8px 20px;
+    background: transparent;
+    border-radius: 10px;
+}
+.submit:hover
+{
+    color : #18152d;
+    background: #e0d9da;
+}
+h2{
+    margin-top: 25px;
+}
