@@ -1,8 +1,3 @@
-//menu-bar 가져오기
-$(document).ready(function(){
-	$('header').load("../html/menu_bar.html");
-});
-
 const weather = document.querySelector(".temp");
 
 const API_KEY = "feab79710cf43c5946579544cfa2cbc6"; // 위에서 복사한 API key (뒤에 세자리 가림***) 
