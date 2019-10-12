@@ -1,0 +1,125 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>OutBack_DogHouse</title>
+    <link rel=" shortcut icon" href="../image/DogHouse-2.ico">
+    <link rel="icon" href="../image/DogHouse-2.ico">
+    <link rel="stylesheet" href="../css/reset.css">
+    <link rel="stylesheet" href="../css/home.css">
+    <script src="http://code.jquery.com/jquery-1.9.1.js"></script>
+</head>
+<body>
+        <header>
+
+        </header>
+        
+        <main class="cards">
+
+            <!-- 컨트롤 카드 -->
+            <div class="flip-card">
+                <div class="flip-card-in">
+
+                    <div class="flip-card-front">
+                        <div class="small_font">도그하우스 컨트롤러</div>
+
+                        <img src="https://image.flaticon.com/icons/svg/141/141070.svg"
+                         alt="Today">
+                         <!-- 음악 on/off  / 눌렀을 때-->    
+                        <div class="btn" onclick="location.href='sendMusic'">
+                            음악
+                        </div>
+                        <!-- 온도 on/off / 눌렀을 때 -->    
+                        <div class="btn" onclick="location.href='sendTemp'">
+                            온도
+                        </div>  
+                        
+                    </div>
+
+                </div>
+            </div>
+
+            <!-- 불쾌지수 -->
+            <div class="flip-card">
+                <div class="flip-card-inner">
+
+                    <div class="flip-card-front">
+                        <div class="small_font">불쾌지수</div>
+
+                        <img src="https://image.flaticon.com/icons/svg/132/132233.svg" 
+                        alt="Wheater">
+                         <!-- 오늘의 날짜 -->    
+                        <div class="small_font">
+                            <!-- 날짜 -->
+                            <span class="nowday"></span> 
+                        </div> 
+                        <!-- 불쾌지수 -->
+                        <div class="big_font"> 
+                            좋음
+                        </div> 
+                    </div>
+
+                    <div class="flip-card-back">
+                        <h1>불쾌지수 보러가기</h1>
+                    </div>
+                </div>
+            </div>
+
+            <!-- 오늘의 날씨 -->
+            <div class="flip-card">
+                <div class="flip-card-inner">
+    
+                    <div class="flip-card-front">
+                        <div class="small_font">오늘의 날씨</div>
+                        
+                        <img src="https://image.flaticon.com/icons/svg/874/874992.svg"
+                         alt="Today">
+                        <!-- 사용자의 지역온도 -->
+                        <div class="big_font">
+                            <!-- 온도  -->
+                            <span class="temp"></span>
+                            <span>°C</span>
+                        </div> 
+                    </div>
+                        
+                    <a href="https://weather.naver.com/" target="_blank">
+                    <div class="flip-card-back">
+                    
+                        <h1>날씨 보러가기</h1>
+                    
+                    </div>
+                    </a>
+                </div>
+            </div>
+            <!-- 마이 도그하우스 -->
+            <div class="flip-card">
+                <div class="flip-card-inner">
+    
+                    <div class="flip-card-front">
+                        <div class="small_font">마이 도그하우스</div>
+                        
+                        <img src="https://image.flaticon.com/icons/svg/609/609803.svg" 
+                        alt="DogHouse">
+                        <!-- 개 집 온도 -->
+                        <div class="big_font"> 
+                                25°C
+                        </div> 
+                        <!-- 개 집 무게 -->
+                        <div class="big_font"> 
+                                5kg
+                        </div> 
+                    </div>
+                        
+                    <div class="flip-card-back" href = "https://weather.naver.com/">
+                        <h1>자세히 보러가기</h1>
+                    </div>
+                </div>
+            </div>
+
+        </main>
+
+        <script src="../js/api.js"></script>
+</body>
+</html>
