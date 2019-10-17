@@ -6,6 +6,7 @@ const puppeteer = require('puppeteer');
 //$ = require('jquery')(new jsdom.JSDOM().window);
 const app = express();
 var router = express.Router();
+var exec = require('child_process').exec;
 //var mysqlDB = require('./mysql-db');
 
 //const serve = require('express-static');
@@ -45,6 +46,16 @@ app.get('/home', function(req, res){
     res.sendFile(__dirname + '/public/html/home.html');
 })
 
+app.get('/sendTemp', function(req, res){
+    res.sendFile(__dirname + '/public/html/flag.html');
+})
+
+app.get('/phpcode', function(req, res){
+    exec("php flag.php", function (error, stdout, stderr){
+        res.send(stdout);
+    });
+});
+
 app.get('/login/home', function(req, res){ // 로그인 버튼 누르면
     //모든 칸에 정보를 다 입력했는지 확인
     response = {
@@ -82,10 +93,6 @@ app.get('/join/home', function(req, res){ // 회원가입 버튼 누르면
     //DB에 회원 데이터 저장
 
     res.sendFile(__dirname + '/public/html/home.html');
-})
-
-app.get('/sendTemp', function(req, res){
-    //라즈베리파이로 온도 플래그 값 전송
 })
 
 app.listen(3000, () => {
