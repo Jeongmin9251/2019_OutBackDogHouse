@@ -12,32 +12,6 @@
     <script src="http://code.jquery.com/jquery-1.9.1.js"></script>
     <script src="../js/petinfo.js"></script>
     <script src="../js/api.js"></script>
-
-    <script>
-
-        var type,birthday,name,gender;
-
-        $(document).ready(function() { 
-            
-            $.getJSON('../server.js', function(data) { 
-                
-                $.each(data, function(i, item) { 
-                    type = item.type;
-                    birthday = item.birthday;
-                    name = item.name;
-                    gender = item.gender;
-                });
-
-            });
-
-        });
-
-        document.getElementById("_dogname").innerHTML = name;
-        document.getElementById("_birth").innerHTML = birthday;
-        document.getElementById("_type").innerHTML = type;
-        document.getElementById("_gender").innerHTML = gender;
-
-    </script>
 </head>
 <body>
         <header></header>
@@ -64,5 +38,25 @@
                     </div>
             </div>
         </main>
+
+        <script>
+
+            $(document).ready(function(){
+                
+                $.getJSON('http://localhost:3000/pet/info', function(data){
+
+                var dogname = data[0].dogname;
+                var birthday = data[0].dogbirth;
+                var username = data[0].username;
+                var gender = data[0].sex;
+
+                $('#_dogname').html(dogname);
+                $('#_birth').html(birthday);
+                $('#_username').html(username);
+                $('#_gender').html(gender);
+        });
+            });
+
+        </script>
 </body>
 </html>
