@@ -10,7 +10,34 @@
     <link rel="stylesheet" href="../css/reset.css">
     <link rel="stylesheet" href="../css/pro.css">
     <script src="http://code.jquery.com/jquery-1.9.1.js"></script>
+    <script src="../js/petinfo.js"></script>
     <script src="../js/api.js"></script>
+
+    <script>
+
+        var type,birthday,name,gender;
+
+        $(document).ready(function() { 
+            
+            $.getJSON('../server.js', function(data) { 
+                
+                $.each(data, function(i, item) { 
+                    type = item.type;
+                    birthday = item.birthday;
+                    name = item.name;
+                    gender = item.gender;
+                });
+
+            });
+
+        });
+
+        document.getElementById("_dogname").innerHTML = name;
+        document.getElementById("_birth").innerHTML = birthday;
+        document.getElementById("_type").innerHTML = type;
+        document.getElementById("_gender").innerHTML = gender;
+
+    </script>
 </head>
 <body>
         <header></header>
@@ -21,19 +48,19 @@
                          alt="dogimg">
                     <!-- 개이름 -->    
                     <div class="big_font">
-                        브라우니
+                        
                     </div> 
                     <!-- 개 생년월일 -->    
                     <div class="small_font">
-                        2018.09.01
+                        
                     </div>
                     <!-- 개 종류 -->    
                     <div class="small_font">
-                        닥스훈트
+                        
                     </div>
                     <!-- 개 성별 -->    
                     <div class="small_font">
-                        여
+                        
                     </div>
             </div>
         </main>
