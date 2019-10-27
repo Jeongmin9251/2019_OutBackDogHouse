@@ -11,6 +11,7 @@
     <link rel="stylesheet" href="../css/pro.css">
     <script src="http://code.jquery.com/jquery-1.9.1.js"></script>
     <script src="../js/api.js"></script>
+    <!-- <script src="../js/petinfo.js"></script> -->
 </head>
 <body>
         <header></header>
@@ -20,22 +21,42 @@
                     <img src="https://image.flaticon.com/icons/svg/874/874992.svg"
                          alt="dogimg">
                     <!-- 개이름 -->    
-                    <div class="big_font">
+                    <div class="big_font" id="_dogname">
                         브라우니
                     </div> 
                     <!-- 개 생년월일 -->    
-                    <div class="small_font">
+                    <div class="small_font" id="_birth">
                         2018.09.01
                     </div>
-                    <!-- 개 종류 -->    
-                    <div class="small_font">
-                        닥스훈트
+                    <!-- 유저 이름 -->    
+                    <div class="small_font" id="_username">
+                        빡빡이
                     </div>
                     <!-- 개 성별 -->    
-                    <div class="small_font">
+                    <div class="small_font" id=_gender>
                         여
                     </div>
             </div>
         </main>
+
+        <script>
+
+            $(document).ready(function(){
+                
+                $.getJSON('http://localhost:3000/pet/info', function(data){
+
+                var dogname = data[0].dogname;
+                var birthday = data[0].dogbirth;
+                var username = data[0].username;
+                var gender = data[0].sex;
+
+                $('#_dogname').html(dogname);
+                $('#_birth').html(birthday);
+                $('#_username').html(username);
+                $('#_gender').html(gender);
+        });
+            });
+
+        </script>
 </body>
 </html>
