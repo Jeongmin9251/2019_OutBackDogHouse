@@ -121,3 +121,24 @@ a{
     background: #9047c0;
     color: #f1f1f1;
   }
+
+  #temp{
+    color: #ca2104;
+  }
+
+ #ing{
+    padding: 3px 20px;
+    color: #ce4730;
+    font-size: 20px;
+    margin-top: 10px;
+  }
+
+  #weight{
+    margin-top: 10px;
+    color: #50ce30;
+  }
+
+  #weightInfo{
+    font-size: 15px;
+    margin-top: 15px;
+  }
