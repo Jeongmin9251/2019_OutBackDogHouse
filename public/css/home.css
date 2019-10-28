@@ -34,7 +34,7 @@ a{
   .flip-card {
     background-color: transparent;
     width: 200px;
-    height: 450px;
+    height: 480px;
     border: 1px solid #f1f1f1;
     font-size: 50%;
     display: inline-block;
@@ -122,7 +122,7 @@ a{
     color: #f1f1f1;
   }
 
-  #temp{
+  #_temp{
     color: #ca2104;
   }
 
@@ -133,9 +133,17 @@ a{
     margin-top: 10px;
   }
 
-  #weight{
+  #_weight{
     margin-top: 10px;
     color: #50ce30;
+  }
+
+  #state{
+    font-size: 15px;
+    margin-top: 15px;
+    background-color: #50ce30;
+    color: #f1f1f1;
+    padding: 5px;
   }
 
   #weightInfo{
