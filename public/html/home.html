@@ -29,10 +29,10 @@
                          alt="Today">
                          <!-- 음악 on/off  / 눌렀을 때-->    
                         <div class="btn" onclick="location.href='sendMusic'">
-                            음악
+                            음악 OFF<br>(지원예정)
                         </div>
                         <!-- 온도 on/off / 눌렀을 때 -->    
-                        <div class="btn" onclick="location.href='sendTemp'">
+                        <div class="btn" onclick="location.href='sendTemp'" id="_flag">
                             온도
                         </div>  
                         
@@ -107,14 +107,14 @@
                         <div class="big_font2"> 
 
                             <!-- 개 집 온도 -->
-                            <div id="temp">
+                            <div id="_temp">
                                 25°C
                             </div>
 
                             <div id="ing">난방 중</div>
 
                             <!-- 개 집 무게 -->
-                            <div id = "weight"> 
+                            <div id = "_weight"> 
                                 5kg
                             </div> 
 
@@ -126,12 +126,37 @@
                     </div>
                         
                     <div class="flip-card-back" href = "https://weather.naver.com/">
-                        <h1>자세히 <br> 보러가기</h1>
+                        <h1>자세히 보러가기</h1>
                     </div>
                 </div>
             </div>
 
         </main>
+
+        <script>
+            $(document).ready(function(){
+                $.getJSON('http://localhost:3000/pet/settings/8596', function(data){
+                    var weight = data[0].weight;
+                    $('#_weight').html(weight + 'Kg');
+                });
+            });
+        </script>
+
+        <script>
+            $(document).ready(function(){
+                $.getJSON('http://localhost:3000/plag_pel/8809', function(data){
+                    var flag_pel = data[0].flag_pel;
+
+                    if(flag_pel == 1){
+                        $('#_flag').html("온도 ON");
+                    }
+                    else if(flag_pel == 0){
+                        $('#_flag').html("온도 OFF");
+                    }
+                    
+                });
+            });
+        </script>
 
         <script src="../js/api.js"></script>
 </body>

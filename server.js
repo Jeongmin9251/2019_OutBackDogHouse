@@ -23,8 +23,8 @@ var connection = mysql.createConnection({
     password : '1234',       // mysql password
     database : 'test',         // mysql 데이터베이스
     port: 3002,
-  });
-  connection.connect();
+});
+connection.connect();
 
 app.use(express.static(path.join(__dirname + '/public')));
 app.use(bodyParser());
@@ -35,7 +35,7 @@ app.get('/', function(req, res) {
     res.sendFile(__dirname + '/public/html/loading.html');
 });
 
-app.get('/pet/info', function(req, res){
+app.get('/pet/info/9909', function(req, res){
     var Dupli_Query = 'SELECT * FROM info_dog WHERE userid="' + userid +'";';
         var D_query = connection.query(Dupli_Query, function(err, results, id){
             // json으로 펫정보 보내주기...
@@ -43,13 +43,28 @@ app.get('/pet/info', function(req, res){
         });
 })
 
+app.get('/pet/settings/8596', function(req, res){
+    var Dupli_Query = 'SELECT * FROM house_state ORDER BY pk DESC LIMIT 1';
+        var D_query = connection.query(Dupli_Query, function(err, results, id){
+            // json으로 펫정보 보내주기...
+            res.json(results);
+        });
+})
+
+app.get('/plag_pel/8809', function(req, res){
+    var Dupli_Query = 'SELECT * FROM flagpel ORDER BY pk DESC LIMIT 1';
+        var D_query = connection.query(Dupli_Query, function(err, results, id){
+            // json으로 펫정보 보내주기...
+            res.json(results);
+        });
+})
+
+app.get('/sendMusic', function(req, res){
+    res.send('<script type="text/javascript">alert("현재 지원하지 않는 기능입니다."); document.location.href="/home"</script>');
+})
 app.get('/bye', function(req, res){
     res.send('login failed');
 })
-
-app.get('/main', function(req, res){
-    res.sendFile(__dirname + '/public/html/sample.txt');
-});
 
 app.get('/login', function(req, res){
     res.sendFile(__dirname + '/public/html/login.html');
@@ -74,7 +89,16 @@ app.get('/home', function(req, res){
 })
 
 app.get('/sendTemp', function(req, res){
-    res.sendFile(__dirname + '/public/html/flag.html');
+    var Dupli_Query = 'SELECT * FROM flagpel ORDER BY pk DESC LIMIT 1';
+        var D_query = connection.query(Dupli_Query, function(err, results){
+            if(results[0].flag_pel == 1){
+                connection.query("INSERT INTO flagpel(flag_pel) VALUES('0')");
+            }
+            else if(results[0].flag_pel == 0){
+                connection.query("INSERT INTO flagpel(flag_pel) VALUES('1')");
+            }
+        });
+        res.send('<script type="text/javascript">alert("난방 정보를 변경하였습니다."); document.location.href="/home"</script>');
 })
 
 app.post('/login/home', function(req, res){ // 로그인 버튼 누르면
@@ -132,11 +156,6 @@ app.post('/join/home', function(req, res){ // 회원가입 버튼 누르면
         res.send('<script type="text/javascript">alert("모든 정보를 입력해주세요."); document.location.href="/join"</script>');
     }
     else{
-        // var Dupli_Query = 'INSERT INTO info_dog(pw, userid) VALUES("' + response.pw + '", "' + response.newid + '");';
-        // connection.query(Dupli_Query);
-
-        // var Query2 = 'INSERT INTO info_dog(username, dogname, dogbirth, sex) VALUES("' + response.name + '", "' + response.dogname + '", "' + response.birthday + '", "' + response.gender + '");';
-        // connection.query(Query2);
         var samequery = 'SELECT * from info_dog where'
         var Query3 = 'INSERT INTO info_dog(dogname, dogbirth, sex, username, pw, userid) VALUES("' + response.dogname + '", "' + response.birthday + '", "' + response.gender + '", "' + response.name + '", "' + response.pw + '", "' + response.newid + '");';
         connection.query(Query3);
@@ -147,14 +166,6 @@ app.post('/join/home', function(req, res){ // 회원가입 버튼 누르면
 
     res.sendFile(__dirname + '/public/html/home.html');
 });
-
-// app.get('/testing', (req, res) => {
-//     connection.query('SELECT 1 + 1 AS solution', 
-//     function (error, results, fields) {
-//         if (error) throw error;
-//         console.log('The solution is: ', results[0].solution);
-//     });
-// });
 
 app.listen(3000, () => {
     console.log('start');
