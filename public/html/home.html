@@ -29,10 +29,10 @@
                          alt="Today">
                          <!-- 음악 on/off  / 눌렀을 때-->    
                         <div class="btn" onclick="location.href='sendMusic'">
-                            음악
+                            음악 OFF<br>(지원예정)
                         </div>
                         <!-- 온도 on/off / 눌렀을 때 -->    
-                        <div class="btn" onclick="location.href='sendTemp'">
+                        <div class="btn" onclick="location.href='sendTemp'" id="_flag">
                             온도
                         </div>  
                         
@@ -62,7 +62,7 @@
                     </div>
 
                     <div class="flip-card-back">
-                        <h1>불쾌지수 보러가기</h1>
+                        <h1>불쾌지수 <br> 보러가기</h1>
                     </div>
                 </div>
             </div>
@@ -87,7 +87,7 @@
                     <a href="https://weather.naver.com/" target="_blank">
                     <div class="flip-card-back">
                     
-                        <h1>날씨 보러가기</h1>
+                        <h1>날씨 <br> 보러가기</h1>
                     
                     </div>
                     </a>
@@ -103,11 +103,11 @@
                         <img src="https://image.flaticon.com/icons/svg/609/609803.svg" 
                         alt="DogHouse">
                         <!-- 개 집 온도 -->
-                        <div class="big_font"> 
+                        <div class="big_font" id="_temp"> 
                                 25°C
                         </div> 
                         <!-- 개 집 무게 -->
-                        <div class="big_font"> 
+                        <div class="big_font" id="_weight"> 
                                 5kg
                         </div> 
                     </div>
@@ -119,6 +119,31 @@
             </div>
 
         </main>
+
+        <script>
+            $(document).ready(function(){
+                $.getJSON('http://localhost:3000/pet/settings/8596', function(data){
+                    var weight = data[0].weight;
+                    $('#_weight').html(weight + 'Kg');
+                });
+            });
+        </script>
+
+        <script>
+            $(document).ready(function(){
+                $.getJSON('http://localhost:3000/plag_pel/8809', function(data){
+                    var flag_pel = data[0].flag_pel;
+
+                    if(flag_pel == 1){
+                        $('#_flag').html("온도 ON");
+                    }
+                    else if(flag_pel == 0){
+                        $('#_flag').html("온도 OFF");
+                    }
+                    
+                });
+            });
+        </script>
 
         <script src="../js/api.js"></script>
 </body>

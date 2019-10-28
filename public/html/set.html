@@ -20,22 +20,35 @@
                     <img src="https://image.flaticon.com/icons/svg/874/874992.svg"
                          alt="userimg">
                     <!-- 사용자이름 -->    
-                    <div class="big_font">
+                    <div class="big_font" id="_dogname">
                         빡빡이
                     </div> 
                     <!-- 사는 지역 -->    
-                    <div class="small_font">
+                    <div class="small_font" id="_location">
                         대구광역시
                     </div>
                     <!-- 이메일 수신여부 -->    
-                    <div class="btn">
+                    <div class="btn" id="_email">
                         이메일 수신여부
                     </div>
                     <!-- 비밀번호 변경 -->    
-                    <div class="btn">
+                    <div class="btn" id="_changepw">
                         비밀번호변경
                     </div>
             </div>
         </main>
+
+
+        <script>
+                $(document).ready(function(){
+                    $.getJSON('http://localhost:3000/pet/info/9909', function(data){
+    
+                    var dogname = data[0].dogname;
+                    $('#_dogname').html(dogname);
+                    });
+                });
+        </script>
+
+
 </body>
 </html>
