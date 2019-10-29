@@ -111,7 +111,9 @@
                                 25°C
                             </div>
 
-                            <div id="ing">난방 중</div>
+                            <div id="_ing">
+                                난방 중
+                            </div>
 
                             <!-- 개 집 무게 -->
                             <div id = "_weight"> 
@@ -155,9 +157,11 @@
                     var flag_pel = data[0].flag_pel;
                     if(flag_pel == 1){
                         $('#_flag').html("온도 ON");
+                        $('#_ing').html("난방 중");
                     }
                     else if(flag_pel == 0){
                         $('#_flag').html("온도 OFF");
+                        $('#_ing').html("난방 꺼짐");
                     }
                     
                 });

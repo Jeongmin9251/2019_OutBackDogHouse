@@ -88,6 +88,20 @@ app.get('/home', function(req, res){
     res.sendFile(__dirname + '/public/html/home.html');
 })
 
+app.get('/login/sendTemp', function(req, res){
+    var Dupli_Query = 'SELECT * FROM flagpel ORDER BY pk DESC LIMIT 1';
+        var D_query = connection.query(Dupli_Query, function(err, results){
+            if(results[0].flag_pel == 1){
+                connection.query("INSERT INTO flagpel(flag_pel) VALUES('0')");
+            }
+            else if(results[0].flag_pel == 0){
+                connection.query("INSERT INTO flagpel(flag_pel) VALUES('1')");
+            }
+        });
+        res.send('<script type="text/javascript">alert("난방 정보를 변경하였습니다."); document.location.href="/home"</script>');
+})
+
+
 app.get('/sendTemp', function(req, res){
     var Dupli_Query = 'SELECT * FROM flagpel ORDER BY pk DESC LIMIT 1';
         var D_query = connection.query(Dupli_Query, function(err, results){
