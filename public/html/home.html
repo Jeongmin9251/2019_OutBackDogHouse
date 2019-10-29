@@ -142,6 +142,9 @@
                 $.getJSON('http://localhost:3000/pet/settings/8596', function(data){
                     var weight = data[0].weight;
                     $('#_weight').html(weight + 'Kg');
+
+                    var temp = data[0].temp;
+                    $('#_temp').html(temp + 'ºC');
                 });
             });
         </script>
@@ -150,7 +153,6 @@
             $(document).ready(function(){
                 $.getJSON('http://localhost:3000/plag_pel/8809', function(data){
                     var flag_pel = data[0].flag_pel;
-
                     if(flag_pel == 1){
                         $('#_flag').html("온도 ON");
                     }
