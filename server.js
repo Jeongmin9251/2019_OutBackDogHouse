@@ -18,17 +18,26 @@ var userid;
 //const serve = require('express-static');
 
 var connection = mysql.createConnection({
-    host     : 'localhost',    // 호스트 주소
+    host     : '192.168.137.118',    // 호스트 주소
     user     : 'root',           // mysql user
     password : '1234',       // mysql password
-    database : 'test',         // mysql 데이터베이스
-    port: 3002,
+    insecureAuth : true,
+    database : 'mysql',         // mysql 데이터베이스
+    port: 3306
 });
+
 connection.connect();
+connection.query('INSERT INTO flagpel(flag_pel) values("0")');
 
 app.use(express.static(path.join(__dirname + '/public')));
 app.use(bodyParser());
 
+$(function(){
+    setInterval(function() { // 30초마다 house_State db 클리어
+        var query = 'Delete from house_state';
+        connection.query(query);
+    }, 30000);
+});
 
 app.get('/', function(req, res) {
     console.log(req.user);
@@ -54,6 +63,7 @@ app.get('/pet/settings/8596', function(req, res){
 app.get('/plag_pel/8809', function(req, res){
     var Dupli_Query = 'SELECT * FROM flagpel ORDER BY pk DESC LIMIT 1';
         var D_query = connection.query(Dupli_Query, function(err, results, id){
+            console.log(results);
             // json으로 펫정보 보내주기...
             res.json(results);
         });

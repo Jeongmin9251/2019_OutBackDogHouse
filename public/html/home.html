@@ -33,7 +33,7 @@
                         </div>
                         <!-- 온도 on/off / 눌렀을 때 -->    
                         <div class="btn" onclick="location.href='sendTemp'" id="_flag">
-                            온도
+                            난방
                         </div>  
                         
                     </div>
@@ -111,7 +111,7 @@
                                 25°C
                             </div>
 
-                            <div id="_ing">
+                            <div id="ing">
                                 난방 중
                             </div>
 
@@ -140,15 +140,61 @@
         </main>
 
         <script>
-            $(document).ready(function(){
-                $.getJSON('http://localhost:3000/pet/settings/8596', function(data){
-                    var weight = data[0].weight;
-                    $('#_weight').html(weight + 'Kg');
+            var temp;
+            var weight;
 
-                    var temp = data[0].temp;
-                    $('#_temp').html(temp + 'ºC');
-                });
+            $(document).ready(function(){
+                reload();
             });
+
+            function reload(){
+                $.getJSON('http://localhost:3000/pet/settings/8596', function(data){
+                    weight = data[0].weight;
+                    //$('#_weight').html(weight + 'Kg');
+
+                    temp = data[0].temp;
+                    //$('#_temp').html(temp + 'ºC');
+                });
+            }
+
+            setInterval(function() {
+                reload();
+                var weight1 = 0;
+                weight1 = Math.round(weight - 1);
+                if(weight1 < 0){
+                    weight1 = 0;
+                }
+                if(weight1 >= 5)
+                {
+                    $('#state').css({
+                        "background-color": "#cbce30"
+                    });
+                    $('#_weight').css({
+                        "color" : "#cbce30"
+                    });
+                    $('#state').html("경고");
+                }
+                else if(weight1 < 1){
+                    $('#state').css({
+                        "background-color": "#cbce30"
+                    });
+                    $('#state').html("유효하지 않습니다.");
+                }
+                else{
+                    $('#state').css({
+                        "background-color": "#50ce30"
+                    });
+                    $('#_weight').css({
+                        "color" : "#50ce30"
+                    });
+                    $('#state').html("정상");
+                }
+                $('#_temp').html(temp + 'ºC');
+                $('#_weight').html(weight1 + 'Kg');
+                console.log(temp,weight);
+            }, 3000);
+
+        
         </script>
 
         <script>
@@ -156,12 +202,12 @@
                 $.getJSON('http://localhost:3000/plag_pel/8809', function(data){
                     var flag_pel = data[0].flag_pel;
                     if(flag_pel == 1){
-                        $('#_flag').html("온도 ON");
-                        $('#_ing').html("난방 중");
+                        $('#_flag').html("난방 ON");
+                        $('#ing').html("난방 중");
                     }
                     else if(flag_pel == 0){
-                        $('#_flag').html("온도 OFF");
-                        $('#_ing').html("난방 꺼짐");
+                        $('#_flag').html("난방 OFF");
+                        $('#ing').html("난방 꺼짐");
                     }
                     
                 });

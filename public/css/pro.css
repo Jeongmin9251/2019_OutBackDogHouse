@@ -1,9 +1,7 @@
-@import url('https://fonts.googleapis.com/css?family=Gugi|Noto+Sans+KR&display=swap');
 body, html { 
     margin: 0;
     padding: 0;
     height: 100%;
-    font-family: 'Noto Sans KR','Gugi', cursive;
 }
   
 html { 
